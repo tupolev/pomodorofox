@@ -5,7 +5,7 @@
     "description": "Blocks a specified list of domains while a Pomodoro timer is on.",
     "author": "Manuel Gomez",
     "license": "MPL 2.0",
-    "version": "0.1",
+    "version": "0.2",
     "fullName": "PomodoroFox Add-On",
     "preferences": [
         {
@@ -13,7 +13,7 @@
             "title": "Duration of activity periods(minutes)",
             "description": "Duration of activity periods(minutes)",
             "type": "integer",
-            "value": 1
+            "value": 25
         },
         {
             "name": "blockedDomainsList",
@@ -21,6 +21,15 @@
             "description": "List of domains which will be blocked during ativity periods, separated by comma",
             "type": "string",
             "value": "*.facebook.com,*.twitter.com"
+        },
+        {
+            "name": "strictMode",
+            "title": "Use strict mode",
+            "description": "Do not allow to cancel Pomodoro timer",
+            "type": "boolint",
+            "on": "1",
+            "off": "0",
+            "value": 0
         }
     ]
 }
