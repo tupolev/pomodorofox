@@ -1,0 +1,91 @@
+/* Australis support */
+#pomodoro-notifier,
+#pomodoro-notifier[type="active"] {
+  list-style-image: url('pomodoro-active-32.png') !important;
+}
+#pomodoro-notifier[type="inactive"] {
+    list-style-image: url('pomodoro-inactive-32.png') !important;
+}
+
+toolbarpaletteitem[place="palette"] > #pomodoro-notifier {
+  list-style-image: url('pomodoro-active-64.png') !important;
+}
+
+
+/* Badge; do not show it on palette or menu-panel*/
+#pomodoro-notifier:after {
+  position: relative;
+  display:  table;
+  font-family: Arial;
+  font-size: 10px;
+  font-weight: 600;
+  content: attr(value);
+  background-color: #3366CC;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 2px;
+  height: 11px;
+  line-height: 10px;
+}
+/*toolbarpaletteitem[place="palette"] > #pomodoro-notifier:after,*/
+/*#pomodoro-notifier[cui-areatype="menu-panel"]:after {*/
+  /*display: none;*/
+/*}*/
+
+/* Windows Small Icon */
+#pomodoro-notifier[length="1"]:after {
+  margin: 6px -1px 0 -9px;
+  width: 10px;
+}
+#pomodoro-notifier[cui-areatype="toolbar"][length="1"]:after{
+  margin: 7px 3px 0 -13px;
+}
+#pomodoro-notifier[length="2"]:after {
+  margin: 6px 0 0 -16px;
+  width: 16px;
+}
+#pomodoro-notifier[cui-areatype="toolbar"][length="2"]:after{
+  margin: 7px 3px 0 -19px;
+}
+#pomodoro-notifier[length="3"]:after {
+  margin: 6px -1px 0 -19px;
+  width: 20px;
+}
+#pomodoro-notifier[cui-areatype="toolbar"][length="3"]:after{
+  margin: 7px 3px 0 -23px;
+}
+#pomodoro-notifier[length="4"]:after {
+  margin: 6px -2px 0 -20px;
+  width: 22px;
+}
+#pomodoro-notifier[cui-areatype="toolbar"][length="4"]:after{
+  margin: 7px 3px 0 -27px;
+}
+ /*Windows Large Icon*/
+#navigator-toolbox[iconsize="large"] #pomodoro-notifier[length="1"]:after {
+  margin: 6px 5px 0 -15px;
+  width: 10px;
+}
+#navigator-toolbox[iconsize="large"] #pomodoro-notifier[length="2"]:after {
+  margin: 6px 3px 0 -19px;
+  width: 16px;
+}
+#navigator-toolbox[iconsize="large"] #pomodoro-notifier[length="3"]:after {
+  margin: 6px 3px 0 -25px;
+  width: 22px;
+}
+#navigator-toolbox[iconsize="large"] #pomodoro-notifier[length="4"]:after{
+  margin: 6px 3px 0 -31px;
+  width: 28px;
+}
+/* Windows Large Icon (icon + text)*/
+#navigator-toolbox[mode="full"] #pomodoro-notifier image,
+#navigator-toolbox[iconsize="large"][mode="full"] #pomodoro-notifier image {
+  padding: 1px;
+}
+
+#navigator-toolbox[mode="full"] #pomodoro-notifier:after,
+#navigator-toolbox[iconsize="large"][mode="full"] #pomodoro-notifier:after {
+  margin: -25px -12px 25px 0;
+}

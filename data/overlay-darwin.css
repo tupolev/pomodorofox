@@ -1,0 +1,74 @@
+#navigator-toolbox[iconsize="large"] #pomodoro-notifier:after,
+#pomodoro-notifier:after {
+  font-family: sans-serif;
+  font-size: 8px;
+  line-height: 10px;
+  height: 10px;
+  margin: -26px 0 16px 0;
+}
+#pomodoro-notifier:-moz-window-inactive:after {
+  background-color: #99B2E5;
+}
+#pomodoro-notifier[length="1"]:after,
+#navigator-toolbox[iconsize="large"] #pomodoro-notifier[length="1"]:after {
+  margin: -12px 0 0 10px;
+  width: 10px;
+}
+#pomodoro-notifier[cui-areatype="toolbar"][length="1"]:after{
+  margin: -10px -13px 0 0;
+}
+#pomodoro-notifier[length="2"]:after,
+#navigator-toolbox[iconsize="large"] #pomodoro-notifier[length="2"]:after {
+  margin: -12px 0 0 8px;
+  width: 12px;
+}
+#pomodoro-notifier[cui-areatype="toolbar"][length="2"]:after{
+  margin: -10px -14px 0 0;
+}
+#pomodoro-notifier[length="3"]:after,
+#navigator-toolbox[iconsize="large"] #pomodoro-notifier[length="3"]:after {
+  margin: -12px 0 0 1px;
+  width: 19px;
+}
+#pomodoro-notifier[cui-areatype="toolbar"][length="3"]:after{
+  margin: -10px -14px 0 -7px;
+}
+#pomodoro-notifier[length="4"]:after,
+#navigator-toolbox[iconsize="large"] #pomodoro-notifier[length="4"]:after{
+  margin: -12px 0 0 0;
+  width: 21px;
+}
+#pomodoro-notifier[cui-areatype="toolbar"][length="4"]:after{
+  margin: -10px -14px 0 -13px;
+}
+/** Retina Display **/
+@media (min-resolution: 2dppx) {
+  #pomodoro-notifier,
+  #pomodoro-notifier[type="active"] {
+    list-style-image: url('pomodoro-active-32.png') !important;
+  }
+  #pomodoro-notifier[type="inactive"] {
+    list-style-image: url('pomodoro-inactive-32.png') !important;
+  }
+  #pomodoro-notifier image {
+    width: 32px;
+  }
+}
+
+/* Mac Large Icon (icon + text)*/
+#navigator-toolbox[mode="full"] #pomodoro-notifier[length="1"]:after,
+#navigator-toolbox[mode="full"][iconsize="large"] #pomodoro-notifier[length="1"]:after {
+  margin: -26px 0 16px 10px;
+}
+#navigator-toolbox[mode="full"] #pomodoro-notifier[length="2"]:after,
+#navigator-toolbox[mode="full"][iconsize="large"] #pomodoro-notifier[length="2"]:after {
+  margin: -26px 0 16px 8px;
+}
+#navigator-toolbox[mode="full"] #pomodoro-notifier[length="3"]:after,
+#navigator-toolbox[mode="full"][iconsize="large"] #pomodoro-notifier[length="3"]:after {
+  margin: -26px 0 16px 1px;
+}
+#navigator-toolbox[mode="full"] #pomodoro-notifier[length="4"]:after,
+#navigator-toolbox[mode="full"][iconsize="large"] #pomodoro-notifier[length="4"]:after{
+  margin: -26px 0 16px 0;
+}
