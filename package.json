@@ -23,6 +23,15 @@
             "value": "*.facebook.com,*.twitter.com"
         },
         {
+            "name": "timeoutSound",
+            "title": "Audio notifications",
+            "description": "Play a predefined sound when time is up.",
+            "type": "boolint",
+            "on": "1",
+            "off": "0",
+            "value": 0
+        },
+        {
             "name": "strictMode",
             "title": "Use strict mode",
             "description": "Do not allow to cancel Pomodoro timer",
