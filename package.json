@@ -5,7 +5,7 @@
     "description": "Blocks a specified list of domains while a Pomodoro timer is on.",
     "author": "Manuel Gomez",
     "license": "MPL 2.0",
-    "version": "0.2.2",
+    "version": "0.3",
     "fullName": "PomodoroFox Add-On",
     "preferences": [
         {
