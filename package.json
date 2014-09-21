@@ -5,15 +5,29 @@
     "description": "Blocks a specified list of domains while a Pomodoro timer is on.",
     "author": "Manuel Gomez",
     "license": "MPL 2.0",
-    "version": "0.3",
+    "version": "0.4",
     "fullName": "PomodoroFox Add-On",
     "preferences": [
+        {
+            "name": "numCyclesPerSession",
+            "title": "Number of activity periods per session",
+            "description": "A session is a cycle of activity and break periods. How many activity periods does a session contain?",
+            "type": "integer",
+            "value": 1
+        },
         {
             "name": "timeActivityPeriod",
             "title": "Duration of activity periods(minutes)",
             "description": "Duration of activity periods(minutes)",
             "type": "integer",
-            "value": 25
+            "value": 1
+        },
+        {
+            "name": "timeBreakPeriod",
+            "title": "Duration of break periods(minutes)",
+            "description": "Duration of break periods(minutes)",
+            "type": "integer",
+            "value": 1
         },
         {
             "name": "blockedDomainsList",
@@ -29,7 +43,7 @@
             "type": "boolint",
             "on": "1",
             "off": "0",
-            "value": 0
+            "value": 1
         },
         {
             "name": "strictMode",

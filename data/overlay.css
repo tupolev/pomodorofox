@@ -1,14 +1,17 @@
 /* Australis support */
 #pomodoro-notifier,
-#pomodoro-notifier[type="active"] {
+#pomodoro-notifier[type="activity"] {
   list-style-image: url('pomodoro-active-32.png') !important;
 }
 #pomodoro-notifier[type="inactive"] {
     list-style-image: url('pomodoro-inactive-32.png') !important;
 }
+#pomodoro-notifier[type="break"] {
+    list-style-image: url('pomodoro-break-32.png') !important;
+}
 
 toolbarpaletteitem[place="palette"] > #pomodoro-notifier {
-  list-style-image: url('pomodoro-active-64.png') !important;
+  list-style-image: url('pomodoro-active-32.png') !important;
 }
 
 
