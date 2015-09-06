@@ -46,7 +46,7 @@
       "type": "boolint",
       "on": "1",
       "off": "0",
-      "value": 1
+      "value": 0
     },
     {
       "name": "strictMode",

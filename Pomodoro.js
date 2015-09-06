@@ -38,8 +38,9 @@ function Pomodoro(options) {
     this.activityPeriodsCounter = 0;
     this.breakPeriodsCounter = 0;
     this.cycleCounter = 0;
+    this.blockerObject = null;
 
-    this.onTimeOut = function(caller){
+    this.onTimeOut = function(caller, blockerObj){
         switch (this.currentPeriod) {
             case this._ACTIVITY:
                 this.toast(this._NOTIFICATION_TIMEOUT_ACTIVITY);
@@ -48,7 +49,7 @@ function Pomodoro(options) {
                 this.toast(this._NOTIFICATION_TIMEOUT_BREAK);
                 break;
         }
-        this.stopTimer(caller);
+        this.stopTimer(caller, blockerObj);
         this.play();
     };
 
@@ -70,24 +71,26 @@ function Pomodoro(options) {
         caller.label = time + currentLabel;
         //instance.toggleIcon(caller, instance.currentPeriod, (time - accumulated));
         this.interval = tmr.setInterval(function(){
+            console.log("peich");
             caller.tooltiptext = instance._LABEL_ADDON_NAME + ': ' +(time - accumulated) + currentLabel;
+            console.log(instance.currentPeriod);
             instance.toggleIcon(caller, instance.currentPeriod, (time - accumulated));
             accumulated++;
         }, 60 * 1000);
         this.timerInstance = tmr.setTimeout(function() {
-            instance.onTimeOut(caller);
+            instance.onTimeOut(caller, instance.blockerObject);
         }, parseInt(this.settings.timeActivityPeriod) * 60 * 1000);
     };
 
-    this.stopTimer = function(caller) {
-
+    this.stopTimer = function(caller, blockerObj) {
+        console.log("stoptimer");
         if (this.cycleCounter < this.settings.numCyclesPerSession) {
             if (this.currentPeriod == this._ACTIVITY) {
                 console.log("finished activity " + this.activityPeriodsCounter);
                 this.activityPeriodsCounter++;
                 //start break
                 console.log("starting break " + this.breakPeriodsCounter);
-                this.startTimer(caller, this.settings.timeBreakPeriod, this._BREAK);
+                this.startTimer(caller, this.settings.timeBreakPeriod, this._BREAK, blockerObj);
             } else {
                 console.log("finished break " + this.breakPeriodsCounter);
                 this.breakPeriodsCounter++;
@@ -96,13 +99,15 @@ function Pomodoro(options) {
                 console.log("starting cycle " + this.cycleCounter);
                 //start activity
                 console.log("starting activity " + this.activityPeriodsCounter);
-                this.startTimer(caller, this.settings.timeActivityPeriod, this._ACTIVITY);
+                this.startTimer(caller, this.settings.timeActivityPeriod, this._ACTIVITY, blockerObj);
             }
         } else {
+            console.log("else. going to stop timer");
             tmr.clearTimeout(this.timerInstance);
             tmr.clearInterval(this.interval);
             this.timerIsOn = false;
             this.sessionActive = false;
+            blockerObj.destroy();
             this.breakPeriodsCounter = 0;
             this.activityPeriodsCounter = 0;
             this.breakPeriodsCounter = 0;
@@ -131,6 +136,7 @@ function Pomodoro(options) {
                 caller.type = "inactive";
                 caller.tooltiptext = this._LABEL_START_SESSION;
         }
+        console.log(caller.type);
     };
 
     this.toast = function(message)
@@ -156,8 +162,9 @@ function Pomodoro(options) {
         });
     };
 
-    this.startSession = function(caller, time)
+    this.startSession = function(caller, time, blockerObject)
     {
+        this.blockerObject = blockerObject;
         this.sessionActive = true;
         this.breakPeriodsCounter = 0;
         this.activityPeriodsCounter = 0;
@@ -177,6 +184,7 @@ function Pomodoro(options) {
         this.breakPeriodsCounter = 0;
         this.cycleCounter = 0;
         this.stopTimer(caller);
+        //this.blockerObject.destroy();
         this.sessionActive = false;
         this.toast(this._NOTIFICATION_SESSION_FINISHED);
     };
