@@ -1,44 +1,61 @@
 {
-    "name": "pomodorofox",
-    "title": "pomodoroFox",
-    "id": "jid1-jh8UK0rCTNKNmw",
-    "description": "Blocks a specified list of domains while a Pomodoro timer is on.",
-    "author": "Manuel Gomez",
-    "license": "MPL 2.0",
-    "version": "0.3",
-    "fullName": "PomodoroFox Add-On",
-    "preferences": [
-        {
-            "name": "timeActivityPeriod",
-            "title": "Duration of activity periods(minutes)",
-            "description": "Duration of activity periods(minutes)",
-            "type": "integer",
-            "value": 25
-        },
-        {
-            "name": "blockedDomainsList",
-            "title": "Blocked domains list (comma-separated)",
-            "description": "List of domains which will be blocked during ativity periods, separated by comma",
-            "type": "string",
-            "value": "*.facebook.com,*.twitter.com"
-        },
-        {
-            "name": "timeoutSound",
-            "title": "Audio notifications",
-            "description": "Play a predefined sound when time is up.",
-            "type": "boolint",
-            "on": "1",
-            "off": "0",
-            "value": 0
-        },
-        {
-            "name": "strictMode",
-            "title": "Use strict mode",
-            "description": "Do not allow to cancel Pomodoro timer",
-            "type": "boolint",
-            "on": "1",
-            "off": "0",
-            "value": 0
-        }
-    ]
+  "title": "pomodorofox",
+  "name": "pomodorofox",
+  "version": "1.1.1",
+  "description": "Blocks a specified list of domains while a Pomodoro timer is on.",
+  "main": "main.js",
+  "author": "Manuel Gomez",
+  "engines": {
+    "firefox": ">=40.0a1"
+  },
+  "license": "MPL 2.0",
+  "fullName": "PomodoroFox Add-On",
+  "preferences": [
+    {
+      "name": "numCyclesPerSession",
+      "title": "Number of activity periods per session",
+      "description": "A session is a cycle of activity and break periods. How many activity periods does a session contain?",
+      "type": "integer",
+      "value": 1
+    },
+    {
+      "name": "timeActivityPeriod",
+      "title": "Duration of activity periods(minutes)",
+      "description": "Duration of activity periods(minutes)",
+      "type": "integer",
+      "value": 1
+    },
+    {
+      "name": "timeBreakPeriod",
+      "title": "Duration of break periods(minutes)",
+      "description": "Duration of break periods(minutes)",
+      "type": "integer",
+      "value": 1
+    },
+    {
+      "name": "blockedDomainsList",
+      "title": "Blocked domains list (comma-separated)",
+      "description": "List of domains which will be blocked during ativity periods, separated by comma",
+      "type": "string",
+      "value": "*.facebook.com,*.twitter.com"
+    },
+    {
+      "name": "timeoutSound",
+      "title": "Audio notifications",
+      "description": "Play a predefined sound when time is up.",
+      "type": "boolint",
+      "on": "1",
+      "off": "0",
+      "value": 1
+    },
+    {
+      "name": "strictMode",
+      "title": "Use strict mode",
+      "description": "Do not allow to cancel Pomodoro timer",
+      "type": "boolint",
+      "on": "1",
+      "off": "0",
+      "value": 0
+    }
+  ]
 }
